@@ -1,0 +1,40 @@
+/**
+ * Fonts part
+ */
+@font-face {
+   font-family: 'Fontin';
+   src: url('fonts/Fontin-Regular.otf') format('opentype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Hermit';
+   src: url('fonts/Hermit-medium.otf') format('opentype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+/**
+ * Common part
+ */
+body {
+   font-family: 'Helvetica';
+   font-size: 20px;
+}
+
+h1, h2, h3 {
+   font-family: 'Fontin';
+   margin-bottom: 0;
+}
+
+/**
+ * Code part
+ */
+code {
+   -moz-border-radius: 5px;
+   -web-border-radius: 5px;
+   border-radius: 5px;
+   font-size: 20px;
+   font-family: 'Hermit';
+}
