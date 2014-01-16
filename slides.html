@@ -7,27 +7,177 @@
   </head>
   <body>
     <textarea id="source">
+name: inverse
 layout: true
-class: center, middle
+class: inverse,center,middle
 ---
+# Blablabla
+[GPG, Videos]
 
-# Title
+[@Mayeu](https://twitter.com/Mayeu)
+---
+##Picard a un message pour vous
+---
+![Default-aligned image](picard.png)
+---
+##Conférences
+---
+layout: false
+##Confs : 30c3
+
+Adresse du CCC-TV: https://media.ccc.de/browse/congress/2013/
+
+--
+
+- Y U NO ISP, taking back the Net
+  - État des lieux des FAI associatifs en france et dans le monde
+--
+
+- Sysadmin of the world, unite!
+   - Un appel à l'exfiltration d'information, par Jacob Appelbaum, Julian Assange & Laura Poitras
+--
+
+- The Tor Network
+   - Retrospective de l'année, et besoin actuel du réseau
+--
+
+- Plants & Machines
+   - "Putting the bot back into botanics"
+--
+
+- No neutral ground in a burning world
+   - Impact des technologies sur le monde et les gouvernements
+--
+
+- 30c3 Keynote
+   - Conférence de Glenn Greenwald
+--
+
+- To protect and infect part 2: The militarization of the Internet
+   - Un petit tour des gadgets de la NSA par Jacob Appelbaum
+---
+##Confs: confs.fr
 
 ---
+template: inverse
+##GPG
+---
+layout: false
+.left-column[
+##GPG
+###Attaque
+]
+.right-column[
+>  Scientist use "RSA Key Extraction via Low-Bandwidth Acoustic Cryptanalysis".
+>  It's super effective!
 
-# Agenda
+-  Attaque par canaul auxilliaire (side channel attack)
+-  Écoute les vibrations du CPU
+-  Exctraction de la clé privé en quelques heures.
+-  Lien: http://www.cs.tau.ac.il/~tromer/acoustic/
+]
+---
+.left-column[
+##GPG
+###Attaque
+###Config
+]
+.right-column[
+Ajout d'option dans la configuration par défaut de Gnupg
 
-Yes code!
+-  https://github.com/Mayeu/gpg.conf
+-  Visionnage des photos
+-  UTF8 par défaut
+]
+---
+.left-column[
+##GPG
+###Attaque
+###Config
+###Cert level
+]
+.right-column[
 
-```ruby
-def lol
-  puts 'lol'
-end
+*  `gpg --ask-cert-level` considered harmful:
+  *  https://www.debian-administration.org/users/dkg/weblog/98
+
+Contre indication à `ask-cert-level` :
+
+* No well defined standard
+* No functionnal gain
+* Leak social graph information
+* Complexify **all** the things! o/
+
+]
+---
+.left-column[
+##GPG
+###Attaque
+###Config
+###Cert level
+###Graphe
+]
+.right-column[
+
+*  Installer:
+  *  signing-party
+  *  graphviz
+
+```
+$ gpg --list-sigs | sig2dot > ~/.gnupg/pubring.dot \
+  2> ~/.gnupg/pubring.error.txt
+$ neato -Tpng ~/.gnupg/pubring.dot \
+  > ~/.gnupg/pubring.neato.png
+$ geeqie .gnupg/pubring.neato.png
 ```
 
+Source: http://lists.gnupg.org/pipermail/gnupg-users/2011-October/042942.html
+]
 ---
+.left-column[
+##GPG
+###Attaque
+###Config
+###Cert level
+###Graphe
+###Logiciels
+]
+.right-column[
+Utilitaire pour signer les clés facilement: `pius`, `caff` (CA fire and forget)
 
-# Introduction
+Exemple avec caff:
+
+```perl
+# Required config
+$CONFIG{owner} = q{Mayeu};
+$CONFIG{email} = q{m@6x9.fr};
+$CONFIG{keyid} = [ qw{22B10496B00DA693} ];
+
+# Path to the secret keyring
+# (if not standard)
+$CONFIG{'secret-keyring'} = q{/path/to/secret};
+
+# Change sendmail
+#$ENV{PERL_MAILERS} = 'sendmail:/usr/bin/mail';
+```
+
+Ensuite :
+```
+$ caff <long_id_1> [... <long_id_n>]
+```
+]
+---
+.left-column[
+##GPG
+###Attaque
+###Config
+###Cert level
+###Graphe
+###Logiciels
+###Erratum
+]
+.right-column[
+]
 
     </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
