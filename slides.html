@@ -12,7 +12,7 @@ layout: true
 class: inverse,center,middle
 ---
 # Blablabla
-[GPG, Videos]
+[GPG, Vidéos]
 
 [@Mayeu](https://twitter.com/Mayeu)
 ---
@@ -30,7 +30,7 @@ Adresse du CCC-TV: https://media.ccc.de/browse/congress/2013/
 --
 
 - Y U NO ISP, taking back the Net
-  - État des lieux des FAI associatifs en france et dans le monde
+  - État des lieux des FAIs associatifs en France et dans le monde
 --
 
 - Sysadmin of the world, unite!
@@ -38,7 +38,7 @@ Adresse du CCC-TV: https://media.ccc.de/browse/congress/2013/
 --
 
 - The Tor Network
-   - Retrospective de l'année, et besoin actuel du réseau
+   - Rétrospective de l'année, et besoin actuel du réseau
 --
 
 - Plants & Machines
@@ -46,7 +46,7 @@ Adresse du CCC-TV: https://media.ccc.de/browse/congress/2013/
 --
 
 - No neutral ground in a burning world
-   - Impact des technologies sur le monde et les gouvernements
+   - Impact des technologies sur le monde et sur les gouvernements
 --
 
 - 30c3 Keynote
@@ -71,9 +71,9 @@ layout: false
 >  Scientist use "RSA Key Extraction via Low-Bandwidth Acoustic Cryptanalysis".
 >  It's super effective!
 
--  Attaque par canaul auxilliaire (side channel attack)
+-  Attaque par canal auxiliaire (side channel attack)
 -  Écoute les vibrations du CPU
--  Exctraction de la clé privé en quelques heures.
+-  Extraction de la clé privé en quelques heures.
 -  Lien: http://www.cs.tau.ac.il/~tromer/acoustic/
 ]
 ---
@@ -103,9 +103,9 @@ Ajout d'option dans la configuration par défaut de Gnupg
 
 Contre indication à `ask-cert-level` :
 
-* No well defined standard
-* No functionnal gain
-* Leak social graph information
+* Pas de standard bien défini
+* Pas de gain fonctionnel
+* Fuite d'information
 * Complexify **all** the things! o/
 
 ]
@@ -124,10 +124,13 @@ Contre indication à `ask-cert-level` :
   *  graphviz
 
 ```
+# Génération d'un .dot pour graphviz
 $ gpg --list-sigs | sig2dot > ~/.gnupg/pubring.dot \
   2> ~/.gnupg/pubring.error.txt
+# Conversion en png
 $ neato -Tpng ~/.gnupg/pubring.dot \
   > ~/.gnupg/pubring.neato.png
+# Visionnage
 $ geeqie .gnupg/pubring.neato.png
 ```
 
@@ -143,11 +146,12 @@ Source: http://lists.gnupg.org/pipermail/gnupg-users/2011-October/042942.html
 ###Logiciels
 ]
 .right-column[
-Utilitaire pour signer les clés facilement: `pius`, `caff` (CA fire and forget)
+Utilitaires pour certifier les clés facilement: `pius`, `caff` (CA fire and forget)
 
 Exemple avec caff:
 
 ```perl
+$ cat .caffrc
 # Required config
 $CONFIG{owner} = q{Mayeu};
 $CONFIG{email} = q{m@6x9.fr};
