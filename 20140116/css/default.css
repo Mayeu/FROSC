@@ -168,3 +168,6 @@ blockquote {
    font-style: italic;
    color: #888;
 }
+.remark-slide-number {
+   display: none;
+}
